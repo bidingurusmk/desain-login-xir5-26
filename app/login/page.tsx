@@ -1,12 +1,23 @@
 'use client'
 import { useState } from "react";
 import Image from 'next/image'
+import { UserItems } from "@/data/user";
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 const LoginPage = () => {
+    const router = useRouter()
     const [username, setUsername] = useState<string>();
     const [password, setPassword] = useState<string>();
     const handleSubmit = () => {
-        alert(`username: ${username}
-password: ${password}`);
+        const cekUser = UserItems.find((user)=>user.username == username 
+        && user.password == password);
+        if(cekUser){
+            toast.success("anda sukses login")
+            router.replace('/');
+        } else {
+            toast.error('username dan password salah')
+            // alert('username dan password salah');
+        }
     }
     return (
         <div className="min-h-screen w-full flex flex-col justify-center">
