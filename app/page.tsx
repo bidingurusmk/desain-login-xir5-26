@@ -1,4 +1,5 @@
 "use client"
+import Footer from "@/components/footer";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -8,7 +9,7 @@ export default function Home() {
     <div>
       <div className="container mx-auto">
         {/* menu */}
-        <div className="flex flex-row gap-4 justify-between">
+        <div className="flex flex-row gap-4 justify-between items-center">
           <Image src="/images/jh.png" alt="" width={100} height={100}
             className="w-50" />
           <div className="w-full md:flex flex-row gap-4 justify-center 
@@ -21,8 +22,8 @@ export default function Home() {
               <li><Link href="/email" className="hover:text-orange-500">Email</Link></li>
             </ul>
           </div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 md:hidden block" 
-          onClick={() => setIsOpen(!isOpen)}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" 
+          className="size-10 md:hidden block mr-2 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
 
@@ -61,48 +62,7 @@ export default function Home() {
         </div>
       </div>
       {/* footer */}
-      <div className="md:pl-30 px-2 md:pr-20 mt-10 py-8 bg-[#282828] flex 
-      md:flex-row flex-col gap-4 justify-between items-start text-white">
-        <div className="w-1/6">
-          <h1 className="text-xl font-bold">Products</h1>
-          <ul className="mt-4">
-            <li className="hover:text-orange-500"><Link href="/hosting">Hosting</Link></li>
-            <li className="hover:text-orange-500"><Link href="/domain">Domain</Link></li>
-            <li className="hover:text-orange-500"><Link href="/vps-hosting">VPS Hosting</Link></li>
-            <li className="hover:text-orange-500"><Link href="/vps-kvm">VPS KVM</Link></li>
-            <li className="hover:text-orange-500"><Link href="/email">Email</Link></li>
-          </ul>
-        </div>
-        <div className="w-1/6">
-          <h1 className="text-xl font-bold">Services</h1>
-          <ul className="mt-4">
-            <li className="hover:text-orange-500"><Link href="/support">Support</Link></li>
-            <li className="hover:text-orange-500"><Link href="/consultation">Consultation</Link></li>
-          </ul>
-        </div>
-        <div className="w-1/6">
-          <h1 className="text-xl font-bold">Company</h1>
-          <ul className="mt-4">
-            <li className="hover:text-orange-500"><Link href="/about">About Us</Link></li>
-            <li className="hover:text-orange-500"><Link href="/contact">Contact</Link></li>
-          </ul>
-        </div>
-        <div className="w-1/6">
-          <h1 className="text-xl font-bold">Legal</h1>
-          <ul className="mt-4">
-            <li className="hover:text-orange-500"><Link href="/privacy">Privacy Policy</Link></li>
-            <li className="hover:text-orange-500"><Link href="/terms">Terms of Service</Link></li>
-          </ul>
-        </div>
-        <div className="w-2/6">
-          <h1 className="text-xl font-bold">Newsletter</h1>
-          <p>Subscribe to our newsletter for the latest updates and offers.</p>
-          <form className="mt-4">
-            <input type="email" placeholder="Enter your email" className="bg-[#333] text-white placeholder:text-gray-500 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <button type="submit" className="mt-2 bg-blue-500 hover:bg-blue-600 text-white p-2 rounded">Subscribe</button>
-          </form>
-        </div>
-      </div>
+      <Footer />
     </div>
 
   );
