@@ -1,44 +1,16 @@
-"use client"
 import Footer from "@/components/footer";
+import Header from "@/components/header";
+import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+export const metadata:Metadata = {
+    title: "Dashboard Page",
+    description: "Dashboard Page"
+}
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
+  
   return (
     <div>
-      <div className="container mx-auto">
-        {/* menu */}
-        <div className="flex flex-row gap-4 justify-between items-center">
-          <Image src="/images/jh.png" alt="" width={100} height={100}
-            className="w-50" />
-          <div className="w-full md:flex flex-row gap-4 justify-center 
-        items-center hidden">
-            <ul className="flex flex-row gap-4">
-              <li><Link href="/hosting" className="hover:text-orange-500">Hosting</Link></li>
-              <li><Link href="/domain" className="hover:text-orange-500">Domain</Link></li>
-              <li><Link href="/vps-hosting" className="hover:text-orange-500">VPS Hosting</Link></li>
-              <li><Link href="/vps-kvm" className="hover:text-orange-500">VPS KVM</Link></li>
-              <li><Link href="/email" className="hover:text-orange-500">Email</Link></li>
-            </ul>
-          </div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" 
-          className="size-10 md:hidden block mr-2 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-
-          <button className="p-2 bg-green-300
-            hover:bg-green-500 text-center md:block hidden">Login</button>
-        </div>
-        <div className={`w-full ${isOpen ? 'flex' : 'hidden'} md:hidden`}>
-            <ul className="flex flex-col gap-4 items-center justify-center w-full">
-              <li><Link href="/hosting" className="hover:text-orange-500">Hosting</Link></li>
-              <li><Link href="/domain" className="hover:text-orange-500">Domain</Link></li>
-              <li><Link href="/vps-hosting" className="hover:text-orange-500">VPS Hosting</Link></li>
-              <li><Link href="/vps-kvm" className="hover:text-orange-500">VPS KVM</Link></li>
-              <li><Link href="/email" className="hover:text-orange-500">Email</Link></li>
-            </ul>
-          </div>
+      <Header>
         {/* header */}
         <div className="bg-black text-white p-4 flex md:flex-row flex-col gap-4 
       justify-between items-center rounded-b-3xl">
@@ -60,7 +32,7 @@ export default function Home() {
               height={300} className="w-full" />
           </div>
         </div>
-      </div>
+      </Header>
       {/* footer */}
       <Footer />
     </div>
